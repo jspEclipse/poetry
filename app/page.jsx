@@ -5,10 +5,13 @@ import Start from "./components/start";
 import Book from "./components/book";
 
 export default function Home() {
-  const [isStart, setIsStart] = useState(false);
+  const [isStart, setIsStart] = useState(true);
 
   return (
-    <div className="relative flex justify-center items-center w-full h-screen px-12">
+    <div className="relative flex justify-center items-center w-full h-screen">
+      <div>
+        
+      </div>
       {isStart ? <Start/> : <Book/>}
     </div>
   );
