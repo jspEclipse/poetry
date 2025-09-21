@@ -259,24 +259,42 @@ export default function Book() {
     return null;
   }
 
-  // Split one poem into two pages
+  // Split one poem into two pages more evenly
   const splitPoem = (poem) => {
     if (!poem) return { left: '', right: '' };
     
+    // Split by lines first to get better control
     const lines = poem.split('\n');
-    const midPoint = Math.floor(lines.length / 2);
+    const totalLines = lines.length;
+    
+    // Find a good split point around the middle, preferring to break at empty lines (stanza breaks)
+    let splitIndex = Math.floor(totalLines / 2);
+    
+    // Look for empty lines near the middle to make a cleaner break
+    for (let i = Math.max(0, splitIndex - 3); i <= Math.min(totalLines - 1, splitIndex + 3); i++) {
+      if (lines[i] === '') {
+        splitIndex = i;
+        break;
+      }
+    }
     
     return {
-      left: lines.slice(0, midPoint).join('\n'),
-      right: lines.slice(midPoint).join('\n')
+      left: lines.slice(0, splitIndex).join('\n'),
+      right: lines.slice(splitIndex).join('\n').replace(/^\n+/, '') // Remove leading empty lines from right page
     };
   };
 
   const currentPoem = poems[0] || '';
   const { left: leftPageText, right: rightPageText } = splitPoem(currentPoem);
 
+
+  const fontSize = 20;
+
   return (
     <div className="relative w-full h-full overflow-hidden">
+      <style jsx>{`
+        @import url('https://fonts.googleapis.com/css2?family=Fleur+De+Leah&display=swap');
+      `}</style>
       <Stage width={stageSize.width} height={stageSize.height} style={{ display: "block" }}>
         <Layer listening={false}>
           {/*{bookImg && (() => {
@@ -312,34 +330,38 @@ export default function Book() {
         </Layer>
         <Layer>
           {/* Left Page Text */}
-          <Group x={stageSize.width * 0.205} y={stageSize.height * 0.225}>
+          <Group x={stageSize.width * 0.15} y={stageSize.height * 0.05}>
             <KText
               text={leftPageText}
-              fontSize={12}
-              fill="#000"
+              fontSize={fontSize}
+              fontFamily="Fleur De Leah"
+              fill="#000000"
               x={0}
               y={0}
-              width={stageSize.width * 0.35}
-              height={stageSize.height * 0.8}
+              width={stageSize.width * 0.42}
+              height={stageSize.height * 1}
               align="left"
               verticalAlign="top"
               wrap="word"
+              lineHeight={1}
             />
           </Group>
           
           {/* Right Page Text */}
-          <Group x={stageSize.width * 0.65} y={stageSize.height * 0.225}>
+          <Group x={stageSize.width * 0.58} y={stageSize.height * 0.05}>
             <KText
               text={rightPageText}
-              fontSize={12}
-              fill="#000"
+              fontSize={fontSize}
+              fontFamily="Fleur De Leah"
+              fill="#000000"
               x={0}
               y={0}
-              width={stageSize.width * 0.35}
-              height={stageSize.height * 0.8}
+              width={stageSize.width * 0.42}
+              height={stageSize.height * 1}
               align="left"
               verticalAlign="top"
               wrap="word"
+              lineHeight={1}
             />
           </Group>
         </Layer>
