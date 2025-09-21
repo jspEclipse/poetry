@@ -8,11 +8,11 @@ export default function Home() {
   const [isStart, setIsStart] = useState(true);
 
   return (
-    <div className="relative flex justify-center items-center w-full h-screen">
+    <div className="relative flex justify-center items-center w-full h-dvh">
       <div>
         
       </div>
-      {isStart ? <Start/> : <Book/>}
+      {isStart ? <Start pageChange={setIsStart}/> : <Book/>}
     </div>
   );
 }

@@ -15,7 +15,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className="h-dvh">
       <body
-        className={`${fleurDeLeah.className} h-full w-full m-0 p-0`}
+        className={`${fleurDeLeah.className} min-h-dvh w-screen overflow-hidden m-0 p-0`}
       >
         {children}
       </body>
