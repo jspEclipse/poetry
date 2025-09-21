@@ -1,8 +1,6 @@
 var t = 0, caps = false, pause = false;
 
-		const tab = '  ', // two non-breaking spaces, U+00A0
-		// four would be more accurate, but to make this work well on mobile
-		// and need to wrap lines less frequently, two will do
+		const tab = '  ',
 		material = ['sand', 'dust', 'leaves', 'paper', 'tin', 'roots', 'brick',
 			'stone', 'discarded clothing', 'glass', 'steel', 'plastic', 'mud',
 			'broken dishes', 'wood', 'straw', 'weeds'],
