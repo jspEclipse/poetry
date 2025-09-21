@@ -30,7 +30,7 @@ export default function Start({ pageChange }) {
     b.onload = () => setBgImg(b);
 
     const btn = new window.Image();
-    btn.src = "/Once2.PNG";
+    btn.src = "/Once2.png";
     btn.onload = () => setBtnImg(btn);
   }, []);
 
