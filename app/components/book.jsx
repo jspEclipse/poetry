@@ -292,9 +292,6 @@ export default function Book() {
 
   return (
     <div className="relative w-full h-full overflow-hidden">
-      <style jsx>{`
-        @import url('https://fonts.googleapis.com/css2?family=Fleur+De+Leah&display=swap');
-      `}</style>
       <Stage width={stageSize.width} height={stageSize.height} style={{ display: "block" }}>
         <Layer listening={false}>
           {/*{bookImg && (() => {
@@ -334,7 +331,7 @@ export default function Book() {
             <KText
               text={leftPageText}
               fontSize={fontSize}
-              fontFamily="Fleur De Leah"
+              fontFamily="Georgia"
               fill="#000000"
               x={0}
               y={0}
@@ -352,7 +349,7 @@ export default function Book() {
             <KText
               text={rightPageText}
               fontSize={fontSize}
-              fontFamily="Fleur De Leah"
+              fontFamily="Georgia"
               fill="#000000"
               x={0}
               y={0}
