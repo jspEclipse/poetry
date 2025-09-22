@@ -214,7 +214,7 @@ export default function Book() {
       `"What a beautiful bird! I could be moved to tears! \n Surely, this must be what I have been looking for
        this entire time!"`,
       `But the bird begins to fly away.\nBlindly, the girl chases it –`,
-      `${rd}.\n\nThe End.`
+      `${rd}\n\nThe End.`
     ];
 
     // Join stanzas with proper breaks, no character limit
